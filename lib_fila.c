@@ -70,7 +70,7 @@ int desenfileira(t_aviao *item, t_fila *l){
     return 1;
 }
 
-int remove_fila(t_aviao chave, t_aviao *item, t_fila *l){
+int remove_fila(t_aviao chave, t_fila *l){
 
     t_nodo *p;
 
@@ -78,7 +78,24 @@ int remove_fila(t_aviao chave, t_aviao *item, t_fila *l){
         return 0;
     }
 
-    
+    p = (t_nodo *) malloc(sizeof(t_nodo));
+
+    p = l->ini->prox;
+
+    l->fim->chave = chave;
+    while (p->chave.UT != chave.UT) {
+        p = p->prox;
+    }
+
+    if (p == l->fim) {
+        return 0;
+    }
+
+    p->prox->prev = p->prev;
+    p->prev->prox = p->prox;
+    p->prev = NULL;
+    p->prox = NULL;
+    free(p);
 
     l->tamanho--;
 
@@ -93,7 +110,7 @@ void imprime_fila(t_fila *l){
         return;
     ptraux = l->ini;
     while (ptraux->prox->prox != NULL) {
-        printf("%d ", ptraux->prox->chave);
+        printf("%d(%d)", ptraux->prox->chave.ID, ptraux->prox->chave.UT);
         ptraux = ptraux->prox;
     } 
     

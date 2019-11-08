@@ -31,6 +31,6 @@ int enfileira(t_aviao item, t_fila *l);
 
 int desenfileira(t_aviao *item, t_fila *l);
 
-int remove_fila(t_aviao chave, t_aviao *item, t_fila *l);
+int remove_fila(t_aviao chave, t_fila *l);
 
 void imprime_fila(t_fila *l);
