@@ -110,7 +110,7 @@ void imprime_fila(t_fila *l){
         return;
     ptraux = l->ini;
     while (ptraux->prox->prox != NULL) {
-        printf("%d(%d)", ptraux->prox->chave.ID, ptraux->prox->chave.UT);
+        printf("%d(%d) ", ptraux->prox->chave.ID, ptraux->prox->chave.UT);
         ptraux = ptraux->prox;
     } 
     
